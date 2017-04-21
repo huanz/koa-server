@@ -10,7 +10,7 @@ router
     .get('/comment', comment.list)
     .post('/comment', comment.insert)
     .post('/like', comment.like)
-    .get('/video', site.video)
+    .post('/video', site.video)
     .post('/site', site.update)
 
 module.exports = router;
