@@ -12,6 +12,7 @@ exports.list = async(ctx, next) => {
     let result = {
         success: 0,
         video: 0,
+        total: 0,
         hot: [],
         list: [],
     };
@@ -42,10 +43,14 @@ exports.list = async(ctx, next) => {
     query.limit(params.limit);
     query.skip(+params.skip + result.hot.length);
 
-    let list = await query.find();
+    const queryTotal = new AV.Query('Comment');
 
-    if (list.length) {
-        let tmpList = list.map(item => {
+    let listArr = await Promise.all([query.find(), queryTotal.count()]);
+
+    result.total = listArr[1];
+
+    if (listArr[0].length) {
+        let tmpList = listArr[0].map(item => {
             return Object.assign({
                 id: item.id,
                 createdAt: moment(item.createdAt, 'dd').fromNow(),
