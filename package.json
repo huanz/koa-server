@@ -1,0 +1,41 @@
+{
+  "name": "koa-server",
+  "version": "1.0.0",
+  "description": "node.js koa2 server for leancloud",
+  "main": "server.js",
+  "dependencies": {
+    "kcors": "^1.3.2",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-helmet": "^3.1.0",
+    "koa-json-error": "^3.1.2",
+    "koa-logger": "^2.0.1",
+    "koa-router": "^7.1.1",
+    "koa-static-cache": "^5.0.1",
+    "leanengine": "^2.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huanz/koa-server.git"
+  },
+  "keywords": [
+    "koa2",
+    "leancloud"
+  ],
+  "author": "bukas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huanz/koa-server/issues"
+  },
+  "homepage": "https://github.com/huanz/koa-server#readme",
+  "engines": {
+    "node": ">= 7.6.0"
+  }
+}
