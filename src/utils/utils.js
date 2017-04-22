@@ -29,3 +29,12 @@ exports.isObjectId = (id) => {
 exports.fromNow = (data, format = 'dd') => {
     return moment(data, format).fromNow();
 };
+
+exports.listFormat = (list) => {
+    return list.map(item => {
+        return Object.assign({
+            id: item.id,
+            createdAt: exports.fromNow(item.createdAt),
+        }, item.attributes);
+    });
+};

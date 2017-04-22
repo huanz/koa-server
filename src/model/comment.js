@@ -48,12 +48,7 @@ exports.list = async(ctx, next) => {
     result.total = listArr[1];
 
     if (listArr[0].length) {
-        let tmpList = listArr[0].map(item => {
-            return Object.assign({
-                id: item.id,
-                createdAt: utils.fromNow(item.createdAt),
-            }, item.attributes);
-        });
+        let tmpList = utils.listFormat(listArr[0]);
         if (params.userid) {
             let AVlike = await exports.queryLike(params.userid);
             if (AVlike) {
@@ -83,7 +78,7 @@ exports.hot = async() => {
     let hostList = await query.find();
 
     if (hostList.length) {
-        result.hot = utils.pluck(hostList, 'attributes');
+        result.hot = utils.listFormat(hostList);
     }
     return result;
 }
@@ -114,6 +109,7 @@ exports.insert = async(ctx, next) => {
         comment: Object.assign({
             id: AVret.get('objectId'),
             createdAt: utils.fromNow(AVret.createdAt),
+            like: 0,
         }, AVret.attributes)
     };
 };
