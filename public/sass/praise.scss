@@ -1,0 +1,234 @@
+@import "./common";
+
+.top {
+    width: 100%;
+    height: 27px;
+    background: url(../img/praise-top.png) right top no-repeat;
+    background-size: 101px 27px;
+}
+
+.h2 {
+    text-align: center;
+    color: #1fa0ff;
+    font-size: 23px;
+    font-weight: 600;
+    margin: 10px 0 15px;
+}
+
+.lottery-wrap {
+    width: 350px;
+    margin: 0 auto;
+}
+
+.lottery {
+    width: 100%;
+    height: 240px;
+    background: #4b9af2;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 320px) {
+    .lottery-wrap {
+        width: 310px;
+    }
+    .lottery {
+        height: 210px;
+        padding-left: 2px;
+        padding-top: 2px;
+    }
+}
+
+.lottery-item {
+    position: relative;
+    width: 31.5%;
+    height: 47%;
+    border-radius: 10px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    background-color: #fff;
+    color: #474747;
+    font-size: 12px;
+    text-align: center;
+    > img {
+        display: block;
+        margin: 0 auto;
+        width: percentage(70/95);
+        height: percentage(70/95);
+    }
+    &.active:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        background-color: rgb(24, 25, 26);
+        opacity: 0.3;
+    }
+}
+
+.lottery-btn {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(255, 209, 23);
+    color: #fff;
+    padding: 9px 0;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 5px;
+    letter-spacing: 0.1em;
+    border: none;
+    outline: none;
+}
+
+.info {
+    padding: 40px 0 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #464646;
+    font-weight: 200;
+}
+
+.mybtn {
+    display: block;
+    margin: 0 auto 15px;
+    width: 130px;
+    text-align: center;
+    color: #fff;
+    padding: 6px 0;
+    background: #1ea0ff;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.lottery-mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.49);
+    z-index: 100;
+    &.fade {
+        opacity: 0;
+    }
+    &.in {
+        opacity: 1;
+    }
+}
+
+.lottery-alert {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 295px;
+    min-height: 225px;
+    border-radius: 8px;
+    background: #fff;
+    transform: translate3d(-50%, -50%, 0);
+    color: #333;
+}
+
+.lottery-alert-header {
+    width: 100%;
+    height: 45px;
+    background-color: #4c9ef8;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    line-height: 45px;
+    text-align: center;
+    color: #fff;
+}
+
+.lottery-alert-close {
+    color: #fff;
+    font-size: 34px;
+    font-weight: 200;
+    margin-right: 10px;
+    line-height: 1.0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.lottery-alert-content {
+    position: relative;
+    text-align: center;
+    font-size: 17px;
+}
+
+.lottery-alert-btn {
+    display: block;
+    border-radius: 15px;
+    padding: 6px 0;
+    color: #fff;
+    width: 203px;
+    margin: 0 auto;
+    background: #4c9ef8;
+}
+
+.lottery-mybtn {
+    margin-top: 40px;
+}
+
+.praise-used {
+    margin-top: 30px;
+}
+
+.praise-tip {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.praise-my {
+    font-size: 14px;
+    text-align: center;
+    color: #6f6d6d;
+    margin: 20px 0;
+}
+
+table {
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.praise-my-list {
+    width: 260px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: #333;
+    thead {
+        background: #eee;
+    }
+    th,td {
+        border: 1px solid #ddd;
+        padding: 6px 0;
+    }
+
+    a {
+        color: #e85b49;
+    }
+}
+
+.praise-address {
+    color: #333;
+    font-size: 14px;
+    width: 75%;
+    margin: 0 auto;
+    text-align: left;
+    > p {
+        margin: 8px 0;
+        @include text-overflow;
+    }
+    input {
+        background: #eee;
+        border: none;
+        padding: 2px 5px;
+    }
+}

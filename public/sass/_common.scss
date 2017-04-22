@@ -1,0 +1,80 @@
+@import "../../node_modules/mixins-sass/src/mixins";
+@import "../../node_modules/normalize.css/normalize.css";
+
+body {
+  margin: 0;
+}
+
+p,h1,h2,h3,h4,h5,h6,ul,li,input {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+html {
+    @include box-sizing(border-box);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -ms-touch-action: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a,
+button { 
+    -webkit-tap-highlight-color: rgba(0, 0, 0,0); 
+}
+
+button {
+    border: none;
+}
+
+button,
+input {
+    outline: none;
+}
+
+a,
+img {
+    -webkit-touch-callout: none
+}
+
+body {
+    background: #fff;
+    line-height: 1.5;
+    @include font-hei;
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+.pull-right {
+    @include float(right);
+}
+
+.hide {
+    display: none;
+}
+
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    background: rgba(0,0,0,.88);
+    border-radius: 15px;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    width: auto;
+    min-width: 108px;
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    opacity: 0;
+}

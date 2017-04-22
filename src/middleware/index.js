@@ -1,3 +1,4 @@
+const path = require('path');
 const AV = require('leanengine');
 const logger = require('koa-logger');
 const body = require('koa-body');
@@ -10,7 +11,7 @@ const middleware = [
     AV.koa(),
     body({
         formidable: {
-            uploadDir: '/upload'
+            uploadDir: path.join(__dirname, '..', '..', 'upload')
         }
     }),
     cors(),
@@ -24,7 +25,10 @@ const middleware = [
                 success: 2
             };
         }
-    })
+    }),
+    staticCache(path.join(__dirname, '..', '..', 'public'), {
+        maxAge: 365 * 24 * 60 * 60
+    }),
 ];
 
 module.exports = middleware;

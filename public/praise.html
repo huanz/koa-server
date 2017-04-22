@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="referrer" content="always">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="msapplication-tap-highlight" content="no">
+    <title>4.26 魅蓝 E2 新品发布会</title>
+    <link rel="stylesheet" href="./css/praise.css">
+</head>
+<body>
+    <div class="top"></div>
+    <h2 class="h2">分享赢魅蓝 E2 新品手机</h2>
+    <div class="lottery-wrap" id="j-lottery">
+        <div class="lottery">
+            <div class="lottery-item active" index="0">
+                <img src="./img/praise-1.png" alt="魅族EP31耳机">
+                <p>魅族EP31耳机</p>
+            </div>
+            <div class="lottery-item" index="1">
+                <img src="./img/praise-2.png" alt="魅族A20蓝牙音箱">
+                <p>魅族A20蓝牙音箱</p>
+            </div>
+            <div class="lottery-item" index="2">
+                <img src="./img/praise-3.png" alt="陌陌会员1个月">
+                <p>陌陌会员1个月</p>
+            </div>
+            <div class="lottery-item" index="5">
+                <img src="./img/praise-4.png" alt="鸡年熊猫公仔">
+                <p>鸡年熊猫公仔</p>
+            </div>
+            <div class="lottery-item" index="4">
+                <img src="./img/praise-5.png" alt="魅蓝 E2 新品手机">
+                <p class="blue">魅蓝 E2 新品手机</p>
+            </div>
+            <div class="lottery-item" index="3">
+                <img src="./img/praise-6.png" alt="么么哒">
+                <p>么么哒</p>
+            </div>
+        </div>
+        <button class="lottery-btn">立即抽奖</button>
+    </div>
+    <p class="info">每分享一次多获得一次抽奖机会<br>每天最多可分享三次</p>
+    <button class="mybtn">我的奖品</button>
+    <div class="lottery-mask hide" id="j-dialog">
+        <div class="lottery-alert">
+            <div class="lottery-alert-header">4.26 魅蓝 E2 新品发布会</div>
+            <span class="lottery-alert-close">&times;</span>
+            <div class="lottery-alert-content">
+                <p class="praise-used">啊哦，您还没有中奖呢</p>
+            </div>
+        </div>
+    </div>
+    <div class="toast"></div>
+    <script type="text/template" id="j-tpl-0">
+        <p class="praise-used">今天的抽奖机会用光啦！</p>
+        <button class="lottery-alert-btn lottery-mybtn">我的奖品</button>
+        <p class="praise-tip">*明天继续分享抽奖，赢取魅蓝E2新品手机。</p>
+    </script>
+    <script type="text/template" id="j-tpl-1">
+        <p class="praise-used">抽奖机会已经用光啦！</p>
+        <button class="lottery-alert-btn lottery-mybtn">我的奖品</button>
+        <p class="praise-tip">*点击右上角分享按钮，获得额外抽奖机会。</p>
+    </script>
+    <script type="text/template" id="j-tpl-2">
+        <p class="praise-my">我的奖品</p>
+        <table class="praise-my-list">
+            <thead>
+                <tr>
+                    <th>奖品</th>
+                    <th>数量</th>
+                    <th>说明</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>实物奖品</td>
+                    <td>1</td>
+                    <td><a href="javascript:;">查看寄送地址</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </script>
+    <script type="text/template" id="j-tpl-3">
+        <div class="praise-address">
+            <p>您的实物奖品将统一寄往以下地址</p>
+            <p>姓名：丘文宇</p>
+            <p>电话：189****1245</p>
+            <p>地址：珠海市唐家湾魅族科技楼</p>
+            <button class="lottery-alert-btn">修改</button>
+        </div>
+    </script>
+    <script type="text/template" id="j-tpl-4">
+        <div class="praise-address">
+            <p>您的实物奖品将统一寄往以下地址</p>
+            <p>姓名：<input type="text"></p>
+            <p>电话：<input type="number"></p>
+            <p>地址：<input type="text"></p>
+            <button class="lottery-alert-btn">提交</button>
+        </div>
+    </script>
+    <script src="./script/zepto.min.js"></script>
+    <script src="./script/praise.js"></script>
+    <script src="http://cdnst.immomo.com/momofes/js/mobile/momo_bridge.2.0.4.min.js"></script>
+    <script src="./script/share.js"></script>
+</body>
+</html>

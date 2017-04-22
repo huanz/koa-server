@@ -1,9 +1,0 @@
-{
-    "watch": [
-        "src/"
-    ],
-    "ignore": [
-        ".git",
-        "node_modules"
-    ]
-}
