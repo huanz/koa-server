@@ -40,6 +40,9 @@
         &:before {
             content: "";
         }
+        &:focus {
+            background-color: transparent;
+        }
     }
 }
 

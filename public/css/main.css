@@ -699,6 +699,10 @@ body {
   content: "";
 }
 
+.video-wrap .vjs-big-play-button:focus {
+  background-color: transparent;
+}
+
 .video-like {
   position: absolute;
   bottom: -25px;
