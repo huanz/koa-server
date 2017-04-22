@@ -600,8 +600,8 @@ button {
 button,
 input {
   outline: none;
-  box-shadow: none;
   border: none;
+  -webkit-appearance: none;
 }
 
 a,
