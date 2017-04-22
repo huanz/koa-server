@@ -11,7 +11,7 @@ router
     .get('/comment', comment.list)
     .post('/comment', comment.insert)
     .post('/like', comment.like)
-    .get('/video', site.video)
+    .post('/video', site.video)
     .get('/prize', prize.get)
     .post('/prize', prize.post)
     .get('/prize/reduce', prize.reduce)
