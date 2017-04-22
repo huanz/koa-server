@@ -56,8 +56,9 @@
             });
 
             this.$video.on('click', function () {
+                var $this = $(this);
                 $.post(_this.api.video, function (res) {
-                    _this.$video.text(res.video);
+                    $this.text(res.video);
                 });
             });
 

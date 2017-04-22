@@ -51,13 +51,16 @@
 
 .video-like {
     position: absolute;
-    bottom: -25px;
-    right: 5px;
+    bottom: -30px;
+    right: 10px;
     color: #828282;
-    font-size: 12px;
+    font-size: 15px;
     background: url(../img/like.png) center left no-repeat;
-    background-size: 13px;
-    padding-left: 18px;
+    background-size: 19px;
+    padding-left: 25px;
+    &.active {
+        background-image: url(../img/liked.png);
+    }
 }
 
 .middle {
