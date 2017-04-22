@@ -152,7 +152,7 @@ exports.like = async(ctx, next) => {
         AVlike = new Like();
         AVlike.set('userid', params.userid);
     }
-    AVlike.addUnique('comments', params.comment);
+    AVlike.addUnique('comments', [params.comment]);
 
     let results = await Promise.all([AVlike.save(), AVcomment.save(null, {
         fetchWhenSave: true,
