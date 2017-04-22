@@ -30,11 +30,19 @@ exports.fromNow = (data, format = 'dd') => {
     return moment(data, format).fromNow();
 };
 
-exports.listFormat = (list) => {
+exports.listFormat = (list, comments) => {
     return list.map(item => {
         return Object.assign({
             id: item.id,
             createdAt: exports.fromNow(item.createdAt),
+            liked: comments && comments.indexOf(item.id) !== -1
         }, item.attributes);
     });
+};
+
+exports.liked = (list, comments) => {
+    return comments.length ? list.map(item => {
+        item.liked = comments.indexOf(item.id) !== -1;
+        return item;
+    }) : list;
 };

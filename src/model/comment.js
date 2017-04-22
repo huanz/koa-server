@@ -24,6 +24,12 @@ exports.list = async(ctx, next) => {
     const query = new AV.Query('Comment');
 
     /**
+     * @desc 是否已经赞
+     */
+    let AVlike = params.userid ? await exports.queryLike(params.userid) : null;
+    let comments = AVlike ? AVlike.get('comments') : [];
+
+    /**
      * @desc 点赞降序
      */
     query.addDescending('like');
@@ -36,7 +42,7 @@ exports.list = async(ctx, next) => {
      * @desc 需要查询热门评论
      */
     if (!params.skip) {
-        let ret = await exports.hot();
+        let ret = await exports.hot(comments);
         Object.assign(result, ret);
     }
 
@@ -50,23 +56,12 @@ exports.list = async(ctx, next) => {
     result.total = listArr[1];
 
     if (listArr[0].length) {
-        let tmpList = utils.listFormat(listArr[0]);
-        if (params.userid) {
-            let AVlike = await exports.queryLike(params.userid);
-            if (AVlike) {
-                let comments = AVlike.get('comments');
-                tmpList = tmpList.map(item => {
-                    item.liked = comments.indexOf(item.id) !== -1;
-                    return item;
-                });
-            }
-        }
-        result.list = tmpList;
+        result.list = utils.listFormat(listArr[0], comments);
     }
     ctx.body = result;
 };
 
-exports.hot = async() => {
+exports.hot = async(comments) => {
     const config = await site.get();
     const query = new AV.Query('Comment');
     query.addDescending('like');
@@ -80,7 +75,7 @@ exports.hot = async() => {
     let hostList = await query.find();
 
     if (hostList.length) {
-        result.hot = utils.listFormat(hostList);
+        result.hot = utils.listFormat(hostList, comments);
     }
     return result;
 }
@@ -160,9 +155,10 @@ exports.like = async(ctx, next) => {
         fetchWhenSave: true,
     })]);
 
-    ctx.body = Object.assign({
+    ctx.body = {
         success: 0,
-    }, results[1].attributes);
+        comment: results[1].attributes
+    };
 };
 
 exports.queryLike = async(userid) => {
