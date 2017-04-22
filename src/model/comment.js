@@ -92,7 +92,7 @@ exports.hot = async() => {
 
 exports.insert = async(ctx, next) => {
     const AVobj = new Comment();
-    let data = ctx.body;
+    let data = ctx.request.fields;
     let result = {
         success: 0,
     };
@@ -115,7 +115,7 @@ exports.like = async(ctx, next) => {
     let result = {
         success: 0,
     };
-    let params = ctx.body;
+    let params = ctx.request.fields;
 
     if (!params.userid) {
         return ctx.body = {

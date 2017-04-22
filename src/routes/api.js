@@ -11,6 +11,6 @@ router
     .post('/comment', comment.insert)
     .post('/like', comment.like)
     .post('/video', site.video)
-    .post('/site', site.update)
+    .post('/site', site.update);
 
 module.exports = router;

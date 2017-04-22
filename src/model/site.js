@@ -23,7 +23,7 @@ exports.video = async(ctx) => {
 };
 
 exports.update = async(ctx, next) => {
-    let data = ctx.body;
+    let data = ctx.request.fields;
     let AVsite = await query.first();
     for (let key in data) {
         AVsite.set(key, data[key]);

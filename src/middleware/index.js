@@ -1,6 +1,6 @@
 const AV = require('leanengine');
 const logger = require('koa-logger');
-const bodyParser = require('koa-bodyparser');
+const body = require('koa-better-body');
 const cors = require('kcors');
 const helmet = require('koa-helmet');
 const error = require('koa-json-error');
@@ -8,7 +8,7 @@ const staticCache = require('koa-static-cache');
 
 const middleware = [
     AV.koa(),
-    bodyParser(),
+    body(),
     cors(),
     helmet(),
     logger(),
