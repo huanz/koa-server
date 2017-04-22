@@ -170,13 +170,17 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 
-var videoFiles = [
-    './node_modules/video.js/dist/*.{css,js,swf}',
-    './node_modules/videojs-contrib-hls/dist/*.js'
-];
-gulp.task('copy:video', function () {
-    return gulp.src(videoFiles)
-        .pipe(gulp.dest(distDir + 'video'))
+gulp.task('copy:modules', function () {
+    var videos = [
+        './node_modules/video.js/dist/*.{css,js,swf}',
+        './node_modules/videojs-contrib-hls/dist/*.js'
+    ];
+    gulp.src(videos).pipe(gulp.dest(srcDir + 'video'));
+
+    gulp.src([
+        './node_modules/photoswipe/dist/*.min.js',
+    ]).pipe(gulp.dest(srcDir + 'script'));
+    gulp.src('./node_modules/photoswipe/src/css/**/*').pipe(gulp.dest(srcDir + 'sass/photoswipe'));
 });
 
 gulp.task('build', ['image', 'build:sass', 'build:html'], function () {
