@@ -597,13 +597,11 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
-button {
-  border: none;
-}
-
 button,
 input {
   outline: none;
+  box-shadow: none;
+  border: none;
 }
 
 a,
@@ -891,7 +889,7 @@ body {
   width: 80%;
   border: 1px solid #e4e4e4;
   border-radius: 2px;
-  background-color: #efefef;
+  background: #efefef;
   padding: 5px;
 }
 

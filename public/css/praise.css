@@ -597,13 +597,11 @@ button {
   -webkit-tap-highlight-color: transparent;
 }
 
-button {
-  border: none;
-}
-
 button,
 input {
   outline: none;
+  box-shadow: none;
+  border: none;
 }
 
 a,
