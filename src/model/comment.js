@@ -19,6 +19,8 @@ exports.list = async(ctx, next) => {
         skip: 0,
     }, ctx.query);
 
+    params.skip = +params.skip;
+
     const query = new AV.Query('Comment');
 
     /**
@@ -33,13 +35,13 @@ exports.list = async(ctx, next) => {
     /**
      * @desc 需要查询热门评论
      */
-    if (!params.skip) {
+    if (params.skip) {
         let ret = await exports.hot();
         Object.assign(result, ret);
     }
 
     query.limit(params.limit);
-    query.skip(+params.skip + result.hot.length);
+    query.skip(params.skip + result.hot.length);
 
     const queryTotal = new AV.Query('Comment');
 
