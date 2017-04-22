@@ -35,7 +35,7 @@ exports.list = async(ctx, next) => {
     /**
      * @desc 需要查询热门评论
      */
-    if (params.skip) {
+    if (!params.skip) {
         let ret = await exports.hot();
         Object.assign(result, ret);
     }
