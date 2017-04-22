@@ -159,6 +159,9 @@
             if (disableAnimation) {
                 options.showAnimationDuration = 0;
             }
+
+            options.tapToClose = true;
+
             // Pass data to PhotoSwipe and initialize it
             gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
 
