@@ -175,7 +175,7 @@
         },
         events: function () {
             var _this = this;
-            
+
             $('.mybtn').on('click', function () {
                 _this.toast('啊哦，您还没有中奖呢');
             });
