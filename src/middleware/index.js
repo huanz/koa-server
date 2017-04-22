@@ -21,7 +21,7 @@ const middleware = [
             return {
                 status: err.status,
                 msg: err.message,
-                success: 0
+                success: 2
             };
         }
     })
