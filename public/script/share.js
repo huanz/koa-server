@@ -6,7 +6,6 @@
         pic: 'http://blog.u.qiniudn.com/meizumomo.jpg'
     };
     window.shareCallback = function (res) {
-        alert(res.status);
         $.post('https://meizu.leanapp.cn/api/prize?userid=' + window.momoid, function (res) {
             if (!res.success) {
                 window.luckyCount = res.data;

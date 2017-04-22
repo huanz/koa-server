@@ -165,3 +165,26 @@ exports.queryLike = async(userid) => {
     query.equalTo('userid', userid);
     return await query.first();
 };
+
+/**
+ * @desc 修改赞数量
+ */
+exports.praise = async(ctx, next) => {
+    let params = ctx.request.body;
+    let AVcomment = AV.Object.createWithoutData('Comment', params.comment);
+    AVcomment.set('like', params.num);
+    let ret = await AVcomment.save(null, {
+        fetchWhenSave: true,
+    });
+    ctx.body = ret;
+};
+
+/**
+ * @desc 删除一条评论
+ */
+exports.delete = async(ctx, next) => {
+    let params = ctx.request.body;
+    let AVcomment = AV.Object.createWithoutData('Comment', params.comment);
+    let ret = await AVcomment.destroy();
+    ctx.body = ret;
+};
