@@ -2,7 +2,6 @@ const AV = require('leanengine');
 const Comment = AV.Object.extend('Comment');
 const Like = AV.Object.extend('Like');
 
-
 const utils = require('../utils/utils');
 const site = require('./site');
 

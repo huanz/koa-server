@@ -1,12 +1,16 @@
 (function ($, window) {
     var config = window.config = {
-        title: '预约只需1秒钟 奖品高达20万',
-        text: '附近的人都在抢！0元预约抢夺魅蓝Note5新品手机',
+        title: '4.26 魅蓝 E2 给青春做减法',
+        text: '陌陌最火的求婚视频，100万附近人围观！',
         url: window.location.href,
-        pic: 'https://s.momocdn.com/w/u/img/2016/12/05/1480937461662-share.jpg'
+        pic: 'http://blog.u.qiniudn.com/meizumomo.jpg'
     };
     window.shareCallback = function () {
-        
+        $.post('https://meizu.leanapp.cn/api/prize?userid=' + window.momoid, function (res) {
+            if (!res.success) {
+                window.luckyCount = res.data;
+            }
+        }, 'json');
     };
     var shareConfig = window.shareConfig = {
         title: config.title,

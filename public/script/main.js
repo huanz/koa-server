@@ -1,10 +1,10 @@
 (function ($, window) {
-    var BASEAPI = 'https://bukas.leanapp.cn/api';
+    var BASEAPI = 'https://meizu.leanapp.cn/api';
     var PAGE = {
         user: {
-            userid: '111',
-            nickname: 'bukas',
-            avatar: 'http://tva2.sinaimg.cn/crop.0.0.119.119.180/8b30c2fbgw1emo7r73v8xj203c03cglf.jpg'
+            userid: window.momoid || '111',
+            nickname: window.username || 'bukas',
+            avatar: window.avatar || 'http://tva2.sinaimg.cn/crop.0.0.119.119.180/8b30c2fbgw1emo7r73v8xj203c03cglf.jpg'
         },
         api: {
             comment: BASEAPI + '/comment',
@@ -31,6 +31,15 @@
         },
         events: function () {
             var _this = this;
+            /**
+             * @desc 
+             */
+            var player = videojs('j-player');
+            player.on('ready', function () {
+                try {
+                    window.followUrl && $.get(window.followUrl);
+                } catch (error) {}
+            });
             /**
              * @desc 切换tab
              */

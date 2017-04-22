@@ -160,12 +160,29 @@
             this.$dialog = $('#j-dialog');
             this.$dialogC = this.$dialog.find('.lottery-alert-content');
 
+            /**
+             * @desc 抽奖次数
+             */
+            window.luckyCount = {
+                count: 1,
+                share: 0
+            };
+
             this.events();
             this.lottery();
+
+            this.luckyData();
         },
         events: function () {
             var _this = this;
+            
             $('.mybtn').on('click', function () {
+                _this.toast('啊哦，您还没有中奖呢');
+            });
+
+            this.$dialog.on('click', '.lottery-alert-close', function () {
+                _this.$dialog.fadeOut();
+            }).on('click', '.lottery-mybtn', function () {
                 _this.toast('啊哦，您还没有中奖呢');
             });
         },
@@ -173,14 +190,29 @@
             var _this = this;
             Lottery.init({
                 beforeRoll: function () {
-
+                    if (window.luckyCount.count) {
+                        window.luckyCount.count--;
+                        _this.luckyData(true);
+                        return true;
+                    } else {
+                        _this.dialog($('#j-tpl-' + (window.luckyCount.share < 3 ? '1' : '0')).html());
+                        return false;
+                    }
                 },
                 stop: function () {
                     _this.toast('啊哦，您没有中奖哦');
                 }
             });
         },
-        dialog: function () {
+        luckyData: function (reduce) {
+            var api = 'https://meizu.leanapp.cn/api/prize' + (reduce ? '/reduce' : '') + '?userid=' + window.momoid;
+            $.getJSON(api, function (res) {
+                if (!res.success) {
+                    window.luckyCount = res.data;
+                }
+            });
+        },
+        dialog: function (html) {
             this.$dialogC.html(html);
             this.$dialog.fadeIn();
         },

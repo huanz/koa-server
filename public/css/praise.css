@@ -582,9 +582,7 @@ html {
   -ms-touch-action: none;
 }
 
-*,
-*:before,
-*:after {
+*, *:before, *:after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
   box-sizing: inherit;
@@ -653,6 +651,7 @@ body {
   line-height: 30px;
   font-size: 12px;
   opacity: 0;
+  z-index: 111;
 }
 
 .top {
