@@ -1,6 +1,6 @@
 const AV = require('leanengine');
 const logger = require('koa-logger');
-const body = require('koa-better-body');
+const body = require('koa-body');
 const cors = require('kcors');
 const helmet = require('koa-helmet');
 const error = require('koa-json-error');
@@ -8,7 +8,11 @@ const staticCache = require('koa-static-cache');
 
 const middleware = [
     AV.koa(),
-    body(),
+    body({
+        formidable: {
+            uploadDir: '/upload'
+        }
+    }),
     cors(),
     helmet(),
     logger(),
