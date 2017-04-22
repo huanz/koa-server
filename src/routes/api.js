@@ -14,7 +14,7 @@ router
     .get('/video', site.video)
     .get('/prize', prize.get)
     .post('/prize', prize.post)
-    .post('/prize/reduce', prize.reduce)
+    .get('/prize/reduce', prize.reduce)
     .post('/site', site.update);
 
 module.exports = router;
