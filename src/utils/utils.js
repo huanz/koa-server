@@ -46,3 +46,9 @@ exports.liked = (list, comments) => {
         return item;
     }) : list;
 };
+
+exports.isNumeric = (val) => {
+    return !Array.isArray(val) && (val - parseFloat(val) + 1) >= 0;
+};
+
+exports.moment = moment;

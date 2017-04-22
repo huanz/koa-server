@@ -205,7 +205,8 @@
             });
         },
         luckyData: function (reduce) {
-            var api = 'https://meizu.leanapp.cn/api/prize' + (reduce ? '/reduce' : '') + '?userid=' + window.momoid;
+            // https://meizu.leanapp.cn
+            var api = '/api/prize' + (reduce ? '/reduce' : '') + '?userid=' + window.momoid;
             $.getJSON(api, function (res) {
                 if (!res.success) {
                     window.luckyCount = res.data;

@@ -12,6 +12,8 @@ router
     .post('/comment', comment.insert)
     .post('/like', comment.like)
     .get('/prize', prize.get)
+    .post('/prize', prize.post)
+    .post('/prize/reduce', prize.reduce)
     .post('/site', site.update);
 
 module.exports = router;

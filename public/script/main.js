@@ -2,9 +2,9 @@
     var BASEAPI = 'https://meizu.leanapp.cn/api';
     var PAGE = {
         user: {
-            userid: window.momoid || '111',
-            nickname: window.username || 'bukas',
-            avatar: window.avatar || 'http://tva2.sinaimg.cn/crop.0.0.119.119.180/8b30c2fbgw1emo7r73v8xj203c03cglf.jpg'
+            userid: window.momoid,
+            nickname: window.username,
+            avatar: window.avatar
         },
         api: {
             comment: BASEAPI + '/comment',
