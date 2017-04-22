@@ -35,7 +35,7 @@
     }
     var callback = window.callback = {
         config: function () {
-            mm.init({
+            window.mm && window.mm.init({
                 enable: {
                     share: 0,
                     ui_btn: 1
