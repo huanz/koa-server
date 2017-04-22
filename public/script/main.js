@@ -35,7 +35,7 @@
              * @desc 
              */
             var player = videojs('j-player');
-            player.on('ready', function () {
+            player.on('play', function () {
                 try {
                     window.followUrl && $.get(window.followUrl);
                 } catch (error) {}
