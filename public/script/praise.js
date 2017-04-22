@@ -185,7 +185,7 @@
             }).on('click', '.lottery-mybtn', function () {
                 _this.toast('啊哦，您还没有中奖呢');
             }).on('click', '.lottery-sharebtn', function () {
-                window.callback.invoke();
+                window.MMSHARE.invoke();
             });
         },
         lottery: function () {
