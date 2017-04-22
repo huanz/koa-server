@@ -1,3 +1,5 @@
+const moment = require('moment');
+moment.locale('zh-cn');
 /**
  * extracting a list of property values
  *
@@ -22,4 +24,8 @@ exports.pluck = (arr, key, leanCloud = true) => {
 
 exports.isObjectId = (id) => {
     return /^[0-9a-fA-F]{24}$/.test((id + '').trim());
+};
+
+exports.fromNow = (data, format = 'dd') => {
+    return moment(data, format).fromNow();
 };

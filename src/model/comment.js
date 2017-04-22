@@ -1,9 +1,7 @@
-const moment = require('moment');
 const AV = require('leanengine');
 const Comment = AV.Object.extend('Comment');
 const Like = AV.Object.extend('Like');
 
-moment.locale('zh-cn');
 
 const utils = require('../utils/utils');
 const site = require('./site');
@@ -53,7 +51,7 @@ exports.list = async(ctx, next) => {
         let tmpList = listArr[0].map(item => {
             return Object.assign({
                 id: item.id,
-                createdAt: moment(item.createdAt, 'dd').fromNow(),
+                createdAt: utils.fromNow(item.createdAt),
             }, item.attributes);
         });
         if (params.userid) {
@@ -100,15 +98,24 @@ exports.insert = async(ctx, next) => {
     ['userid', 'nickname', 'avatar', 'text'].some(key => {
         if (data[key]) {
             AVobj.set(key, data[key]);
-            return true;
+            return false;
         } else {
             result.success = 1;
             result.msg = `${key}不能为空`;
-            return false;
+            ctx.body = result;
+            return true;
         }
     });
 
-    ctx.body = result.success ? result : await AVobj.save();
+    let AVret = await AVobj.save();
+
+    ctx.body = {
+        success: 0,
+        comment: Object.assign({
+            id: AVret.get('objectId'),
+            createdAt: utils.fromNow(AVret.createdAt),
+        }, AVret.attributes)
+    };
 };
 
 exports.like = async(ctx, next) => {
@@ -155,7 +162,9 @@ exports.like = async(ctx, next) => {
         fetchWhenSave: true,
     })]);
 
-    ctx.body = results[1].attributes;
+    ctx.body = Object.assign({
+        success: 0,
+    }, results[1].attributes);
 };
 
 exports.queryLike = async(userid) => {

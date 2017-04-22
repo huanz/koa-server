@@ -28,5 +28,8 @@ exports.update = async(ctx, next) => {
     for (let key in data) {
         AVsite.set(key, data[key]);
     }
-    ctx.body = await AVsite.save();
+    let AVret = await AVsite.save();
+    ctx.body = Object.assign({
+        success: 0,
+    }, AVret.attributes);
 };
