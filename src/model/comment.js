@@ -175,7 +175,7 @@ exports.queryLike = async(userid) => {
 exports.praise = async(ctx, next) => {
     let params = ctx.request.body;
     let AVcomment = AV.Object.createWithoutData('Comment', params.comment);
-    AVcomment.set('like', params.num);
+    AVcomment.set('like', +params.num);
     let ret = await AVcomment.save(null, {
         fetchWhenSave: true,
     });
