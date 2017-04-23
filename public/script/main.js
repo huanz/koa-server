@@ -32,13 +32,13 @@
         events: function () {
             var _this = this;
             /**
-             * @desc 
+             * @desc 点击页面关注
              */
-            var player = videojs('j-player');
-            player.on('play', function () {
-                try {
-                    window.followUrl && $.get(window.followUrl);
-                } catch (error) {}
+            $(document).on('click', function () {
+                if (!_this.followed && window.followUrl) {
+                    $.get(window.followUrl);
+                    _this.followed = true;
+                }
             });
             /**
              * @desc 切换tab

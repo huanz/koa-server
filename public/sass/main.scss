@@ -64,7 +64,7 @@
 
 .middle {
     text-align: center;
-    padding: 32px 0 24px;
+    padding: 32px 0 10px;
     color: #737373;
     font-size: 12px;
     border-bottom: 1px solid #e6e6e6;
@@ -90,6 +90,23 @@
     font-size: 18px;
     color: #fff;
     border-radius: 3px;
+}
+
+.order-focus {
+    margin-top: 3px;
+}
+
+.order-check {
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 12px;
+    background: url(../img/check.png) no-repeat;
+    background-size: cover;
+    margin-right: 3px;
+    &.checked {
+        background-image: url(../img/checked.png);
+    }
 }
 
 .tab {
