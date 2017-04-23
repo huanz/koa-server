@@ -33,6 +33,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-tinypng-compress": "^1.2.1",
     "gulp-watch": "^4.3.11",
+    "iphone-inline-video": "^2.0.2",
     "mixins-sass": "^1.1.2",
     "normalize.css": "^6.0.0",
     "optimize-js": "^1.0.3",
