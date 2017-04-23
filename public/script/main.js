@@ -25,7 +25,7 @@
             this.params = {
                 userid: this.user.userid,
                 skip: 0,
-                limit: 15
+                limit: 10
             };
 
             this.getComments();
