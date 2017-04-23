@@ -33,21 +33,27 @@
     };
     var MMSHARE = {
         init: function () {
-            MomoBridge.init({
-                enable: {
-                    share: 0,
-                    ui_btn: 1
-                },
-                share: shareConfig,
-                ui_btn: {
-                    title: '',
-                    dropdown: 0,
-                    buttons: [{
-                        'text': '分享',
-                        'action': 1,
-                        'param': shareConfig,
-                    }]
-                }
+            MomoBridge.ready(function (bridge) {
+                bridge.invoke('init', {
+                    enable: {
+                        back: 0,
+                        forward: 0,
+                        refresh: 0,
+                        share: 0,
+                        scrollbar: 0,
+                        ui_btn: 0
+                    },
+                    share: shareConfig,
+                    ui_btn: {
+                        title: '',
+                        dropdown: 0,
+                        buttons: [{
+                            'text': '分享',
+                            'action': 1,
+                            'param': shareConfig,
+                        }]
+                    }
+                });
             });
         },
         invoke: function () {
