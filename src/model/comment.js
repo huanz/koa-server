@@ -189,5 +189,8 @@ exports.delete = async(ctx, next) => {
     let params = ctx.request.body;
     let AVcomment = AV.Object.createWithoutData('Comment', params.comment);
     let ret = await AVcomment.destroy();
-    ctx.body = ret;
+    ctx.body = {
+        success: 0,
+        msg: '成功'
+    };
 };
