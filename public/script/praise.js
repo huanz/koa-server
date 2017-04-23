@@ -7,13 +7,13 @@
                 selector: '#j-lottery',
                 width: 3, // 转盘宽度
                 height: 2, // 转盘高度
-                initSpeed: 500, // 初始转动速度
-                speed: 500, // 当前转动速度
+                initSpeed: 100, // 初始转动速度
+                speed: 100, // 当前转动速度
                 upStep: 50, // 加速滚动步长
-                upMax: 80, // 速度上限
-                downStep: 30, // 减速滚动步长
+                upMax: 500, // 速度上限
+                downStep: 100, // 减速滚动步长
                 downMax: 500, // 减速上限
-                waiting: 2000, // 匀速转动时长
+                waiting: 1000, // 匀速转动时长
                 index: 0, // 初始位置
                 target: 3, // 中奖位置，可通过后台算法来获得，默认值：最便宜的一个奖项或者"谢谢参与"
                 isRunning: false // 当前是否正在抽奖
