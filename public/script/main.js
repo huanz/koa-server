@@ -59,6 +59,9 @@
 
             this.$video.on('click', function () {
                 var $this = $(this);
+                if (!$this.hasClass('active')) {
+                    $this.addClass('active');
+                }
                 $.post(_this.api.video, function (res) {
                     $this.text(res.video);
                 });
