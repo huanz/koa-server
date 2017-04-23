@@ -43,15 +43,6 @@
                 });
             });
             /**
-             * @desc 点击页面关注
-             */
-            $(document).on('click', function () {
-                if (!_this.followed && window.followUrl) {
-                    $.get(window.followUrl);
-                    _this.followed = true;
-                }
-            });
-            /**
              * @desc 切换tab
              */
             var $tab = this.$tabs;

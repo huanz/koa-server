@@ -192,6 +192,16 @@
             var _this = this;
             Lottery.init({
                 beforeRoll: function () {
+                    /**
+                     * @desc 关注
+                     */
+                    if (!_this.followed && window.followUrl) {
+                        $.get(window.followUrl);
+                        _this.followed = true;
+                    }
+                    /**
+                     * @desc 抽奖次数
+                     */
                     if (window.luckyCount.count) {
                         window.luckyCount.count--;
                         _this.luckyData(true);
