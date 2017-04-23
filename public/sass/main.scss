@@ -197,20 +197,26 @@
 }
 
 .comment-right {
+    position: relative;
     margin-left: 32px;
     border-bottom: 1px solid #e6e6e6;
     padding-bottom: 10px;
 }
 
 .comment-praise {
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
     color: #8f8f8f;
-    padding-right: 16px;
-    background: url(../img/praise.png) right 3px no-repeat;
-    background-size: 10px;
+    padding-right: 24px;
+    background: url(../img/praise-normal.png) right 0 no-repeat;
+    background-size: 18px;
+    height: 19px;
+    font-size: 15px;
+    font-weight: 400;
     &.active {
         color: #ed706b;
-        background-position-y: -17px;
+        background-image: url(../img/praise-active.png);
     }
 }
 
@@ -226,9 +232,8 @@
 }
 
 .comment-form {
-    padding: 5px 10px;
+    padding: 15px 10px;
     font-size: 12px;
-    margin-top: 10px;
 }
 
 @include placeholder() {

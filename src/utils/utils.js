@@ -1,3 +1,4 @@
+const numeral = require('numeral');
 const moment = require('moment');
 moment.locale('zh-cn');
 /**
@@ -52,3 +53,7 @@ exports.isNumeric = (val) => {
 };
 
 exports.moment = moment;
+
+exports.numberFormat = (value) => {
+    return numeral(value).format('0,0');
+};

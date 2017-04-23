@@ -1,6 +1,7 @@
 const AV = require('leanengine');
-const numeral = require('numeral');
 const query = new AV.Query('Site');
+
+const utils = require('../utils/utils');
 
 exports.get = async() => {
     let AVsite = await query.first();
@@ -40,9 +41,8 @@ exports.view = async(ctx, next) => {
     let AVret = await AVsite.save(null, {
         fetchWhenSave: true,
     });
-
     ctx.body = {
         success: 0,
-        view: numeral(AVret.get('view')).format('0,0'),
+        view: utils.numberFormat(AVret.get('view')),
     };
 };
