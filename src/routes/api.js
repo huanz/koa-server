@@ -15,7 +15,6 @@ router
     .get('/prize', prize.get)
     .post('/prize', prize.post)
     .get('/prize/reduce', prize.reduce)
-    .get('/view', site.view)
-    .post('/site', site.update);
+    .get('/view', site.view);
 
 module.exports = router;

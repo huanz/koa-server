@@ -9,6 +9,7 @@ const site = require('../model/site');
 router
     .post('/comment', comment.praise)
     .post('/comment/delete', comment.delete)
+    .get('/view', site.config)
     .post('/config', site.update);
 
 module.exports = router;

@@ -46,3 +46,11 @@ exports.view = async(ctx, next) => {
         view: utils.numberFormat(AVret.get('view')),
     };
 };
+
+exports.config = async(ctx, next) => {
+    let AVsite = await query.first();
+    ctx.body = {
+        success: 0,
+        data: AVsite.attributes,
+    };
+};
