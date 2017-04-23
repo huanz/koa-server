@@ -70,7 +70,7 @@
             /**
              * @desc 提交评论
              */
-            $('.comment-form').submit(function (e) {
+            this.$commentFrom = $('.comment-form').submit(function (e) {
                 e.preventDefault();
                 var comment = $.trim($(this).serializeArray()[0].value);
                 comment && _this.postComment(comment);
@@ -159,7 +159,7 @@
             }), function (res) {
                 if (!res.success) {
                     _this.$comment.prepend(_this.renderComment(res.comment));
-                    $(window).scrollTop(_this.$tabs.offset().top);
+                    _this.$commentFrom.find('input.comment-input').val('');
                 } else {
                     _this.toast('评论失败');
                 }

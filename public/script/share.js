@@ -6,14 +6,12 @@
         url: 'https://bm.immomo.com/activity/2017/mzso/index',
         pic: 'https://s.momocdn.com/biz/m/activity/2017/mzso/img/meizumomo.jpg'
     };
-    window.shareCallback = function (ret) {
-        if (ret.message == '分享成功') {
-            $.post('https://meizu.leanapp.cn/api/prize?userid=' + window.momoid, function (res) {
-                if (!res.success) {
-                    window.luckyCount = res.data;
-                }
-            }, 'json');
-        }
+    window.shareCallback = function () {
+        $.post('https://meizu.leanapp.cn/api/prize?userid=' + window.momoid, function (res) {
+            if (!res.success) {
+                window.luckyCount = res.data;
+            }
+        }, 'json');
     };
     var shareConfig = {
         title: config.title,
