@@ -55,5 +55,8 @@ exports.isNumeric = (val) => {
 exports.moment = moment;
 
 exports.numberFormat = (value) => {
+    if (value >= 10000) {
+        return numeral(value/10000).format('0,0.00').replace(/\.?0{1,2}$/, '') + '万';
+    }
     return numeral(value).format('0,0');
 };
