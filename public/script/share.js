@@ -1,16 +1,19 @@
 (function ($, window) {
+    var MomoBridge = window.MomoBridge || window.mm;
     var config = {
         title: '4.26 魅蓝 E2 给青春做减法',
         text: '陌陌最火的求婚视频，100万附近人围观！',
         url: window.location.href,
         pic: 'http://blog.u.qiniudn.com/meizumomo.jpg'
     };
-    window.shareCallback = function (res) {
-        $.post('https://meizu.leanapp.cn/api/prize?userid=' + window.momoid, function (res) {
-            if (!res.success) {
-                window.luckyCount = res.data;
-            }
-        }, 'json');
+    window.shareCallback = function (ret) {
+        if (ret.message == '分享成功') {
+            $.post('https://meizu.leanapp.cn/api/prize?userid=' + window.momoid, function (res) {
+                if (!res.success) {
+                    window.luckyCount = res.data;
+                }
+            }, 'json');
+        }
     };
     var shareConfig = {
         title: config.title,
@@ -39,7 +42,7 @@
     };
     var MMSHARE = {
         init: function () {
-            window.mm && window.mm.init({
+            MomoBridge.init({
                 enable: {
                     share: 0,
                     ui_btn: 1
@@ -57,7 +60,9 @@
             });
         },
         invoke: function () {
-            window.mm && mm.invoke('callShare', shareConfig);
+            MomoBridge.ready(function (bridge) {
+                bridge.invoke('callShare', shareConfig);
+            });
         }
     };
     MMSHARE.init();

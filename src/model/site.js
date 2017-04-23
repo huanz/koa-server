@@ -1,5 +1,5 @@
 const AV = require('leanengine');
-
+const numeral = require('numeral');
 const query = new AV.Query('Site');
 
 exports.get = async() => {
@@ -32,4 +32,17 @@ exports.update = async(ctx, next) => {
     ctx.body = Object.assign({
         success: 0,
     }, AVret.attributes);
+};
+
+exports.view = async(ctx, next) => {
+    let AVsite = await query.first();
+    AVsite.increment('view', 1);
+    let AVret = await AVsite.save(null, {
+        fetchWhenSave: true,
+    });
+
+    ctx.body = {
+        success: 0,
+        view: numeral(AVret.get('view')).format('0,0'),
+    };
 };

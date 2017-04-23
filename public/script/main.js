@@ -9,10 +9,12 @@
         api: {
             comment: BASEAPI + '/comment',
             like: BASEAPI + '/like',
-            video: BASEAPI + '/video'
+            video: BASEAPI + '/video',
+            view: BASEAPI + '/view'
         },
         init: function () {
             this.$video = $('.video-like');
+            this.$videoView = $('.video-play i');
             this.$list = $('#j-list');
             this.$comment = this.$list.find('.comment-list');
             this.$total = $('#j-total');
@@ -31,6 +33,15 @@
         },
         events: function () {
             var _this = this;
+            /**
+             * @desc video
+             */
+            var player = videojs('j-player');
+            player.on('canplay', function () {
+                $.getJSON(_this.api.view, function (res) {
+                    res.success || _this.$videoView.text(res.view);
+                });
+            });
             /**
              * @desc 点击页面关注
              */
@@ -99,6 +110,8 @@
                  * @desc 首次加载
                  */
                 if (first) {
+                    /**视频播放量 */
+                    _this.$videoView.text(res.view);
                     /**视频点赞数量 */
                     _this.$video.text(res.video);
                     /**评论总数 */

@@ -68,11 +68,12 @@ exports.hot = async(comments) => {
     query.limit(config.hot);
 
     let result = {
+        view: config.view,
         total: config.comments,
         video: config.video,
         hot: [],
     };
-    
+
     let hostList = await query.find();
 
     if (hostList.length) {
