@@ -52,7 +52,7 @@ exports.list = async(ctx, next) => {
 
     let listArr = await Promise.all([query.find(), queryTotal.count()]);
 
-    result.total = listArr[1];
+    result.total += listArr[1];
 
     if (listArr[0].length) {
         result.list = utils.listFormat(listArr[0], comments);
@@ -68,9 +68,11 @@ exports.hot = async(comments) => {
     query.limit(config.hot);
 
     let result = {
+        total: config.comments,
         video: config.video,
         hot: [],
-    }
+    };
+    
     let hostList = await query.find();
 
     if (hostList.length) {
