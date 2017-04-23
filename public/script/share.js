@@ -6,15 +6,6 @@
         url: window.location.href,
         pic: 'http://blog.u.qiniudn.com/meizumomo.jpg'
     };
-    window.shareCallback = function (ret) {
-        if (ret.message == '分享成功') {
-            $.post('https://meizu.leanapp.cn/api/prize?userid=' + window.momoid, function (res) {
-                if (!res.success) {
-                    window.luckyCount = res.data;
-                }
-            }, 'json');
-        }
-    };
     var shareConfig = {
         title: config.title,
         text: config.text,
@@ -65,6 +56,5 @@
             });
         }
     };
-    MMSHARE.init();
     window.MMSHARE = MMSHARE;
 })($, window);

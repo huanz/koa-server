@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
+
 <head>
     <meta charset="UTF-8">
-	<meta name="renderer" content="webkit">
+    <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta name="referrer" content="always">
@@ -11,6 +12,7 @@
     <title>4.26 魅蓝 E2 给青春做减法</title>
     <link rel="stylesheet" href="./css/praise.css">
 </head>
+
 <body>
     <div class="top"></div>
     <h2 class="h2">分享赢魅蓝 E2 新品手机</h2>
@@ -107,5 +109,20 @@
     <script src="./script/praise.js"></script>
     <script src="//cdnst.immomo.com/momofes/js/mobile/momo_bridge.2.0.4.min.js"></script>
     <script src="./script/share.js"></script>
+    <script>
+        (function (MMSHARE, window) {
+            window.shareCallback = function (ret) {
+                if (ret.message == '分享成功') {
+                    $.post('https://meizu.leanapp.cn/api/prize?userid=' + window.momoid, function (res) {
+                        if (!res.success) {
+                            window.luckyCount = res.data;
+                        }
+                    }, 'json');
+                }
+            };
+            MMSHARE.init();
+        })(window.MMSHARE, window);
+    </script>
 </body>
+
 </html>
