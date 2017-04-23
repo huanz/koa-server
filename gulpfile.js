@@ -59,6 +59,20 @@ gulp.task('sass', function () {
         .pipe(cssimport({
             extensions: ['css']
         }))
+        .pipe(autoprefixer({
+            browsers: [
+                'safari >= 7',
+                'ios >= 7',
+                'android >= 2.3'
+            ]
+        }))
+        .pipe(cleancss({
+            level: {
+                1: {
+                    specialComments: 0
+                }
+            }
+        }))
         .pipe(gulp.dest(config.css));
 });
 
@@ -70,19 +84,12 @@ gulp.task('build:sass', function () {
         }))
         .pipe(autoprefixer({
             browsers: [
-                'chrome >= 34',
-                'ie >= 8',
-                'ff >= 30',
-                'opera >= 23',
                 'safari >= 7',
                 'ios >= 7',
-                'android >= 2.3',
-                'ie_mob >= 10',
-                'bb >= 10'
+                'android >= 2.3'
             ]
         }))
         .pipe(cleancss({
-            compatibility: 'ie8',
             level: {
                 1: {
                     specialComments: 0

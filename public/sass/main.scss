@@ -2,7 +2,6 @@
 @import "../video/video-js.min.css";
 @import "./photoswipe/main";
 @import "./photoswipe/default-skin";
-
 .full-img {
     display: block;
     width: 100%;
@@ -43,7 +42,7 @@
         &:before {
             content: "";
         }
-        &:focus {
+        &:focus， &:hover {
             background-color: transparent;
         }
     }
@@ -96,7 +95,7 @@
 .tab {
     width: 100%;
     box-shadow: 0 3px 2px 0 #e6e6e6;
-    > a {
+    >a {
         float: left;
         width: 50%;
         height: 39px;

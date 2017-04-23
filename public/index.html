@@ -16,9 +16,10 @@
 <body>
     <img class="full-img" src="./img/header.png" alt="魅蓝-给青春做减法">
     <div class="video-wrap">
-        <video id="j-player" class="video-js" controls preload="auto" poster="//vjs.zencdn.net/v/oceans.png" data-setup='{}'>
-            <source src="http://pl-ali.youku.com/playlist/m3u8?vid=XMjcxOTUxMDA3Mg%3D%3D&type=mp4&ups_client_netip=115.183.36.92&ups_ts=1492859803&utid=PymCEXnhJSgCAXaQhSZcB3Mw&ccode=0501&psid=03471dfdc7a184c9e50be64f5f60bd11&ckey=&duration=2926&expire=18000&ups_key=1aef415c69fdbf41ccf8a1eba5200e86"
-                type="application/x-mpegURL"></source>
+        <video id="j-player" class="video-js" preload="auto" playsinline webkit-playsinline controls autoplay poster="./img/video-poster.jpg"
+            data-setup='{}'>
+            <source src="http://blog.u.qiniudn.com/video.mp4" type="video/mp4"></source>
+            <p class="vjs-no-js">不支持播放</p>
         </video>
         <span class="video-like"></span>
     </div>
@@ -106,13 +107,12 @@
     <script src="./script/zepto.min.js"></script>
     <!-- build path=./script/index.min.js -->
     <script src="./video/video.min.js"></script>
-    <script src="./video/videojs-contrib-hls.min.js"></script>
     <script src="./script/main.js"></script>
     <script src="./script/photoswipe.min.js"></script>
     <script src="./script/photoswipe-ui-default.min.js"></script>
     <script src="./script/photoswipe-setup.js"></script>
     <!-- endbuild -->
-    <script src="https://cdnst.immomo.com/momofes/js/mobile/momo_bridge.2.0.4.min.js"></script>
+    <script src="//cdnst.immomo.com/momofes/js/mobile/momo_bridge.2.0.4.min.js"></script>
     <script src="./script/share.js"></script>
 </body>
 

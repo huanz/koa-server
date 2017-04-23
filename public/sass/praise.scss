@@ -1,5 +1,4 @@
 @import "./common";
-
 .top {
     width: 100%;
     height: 27px;
@@ -51,7 +50,7 @@
     color: #474747;
     font-size: 12px;
     text-align: center;
-    > img {
+    >img {
         display: block;
         margin: 0 auto;
         width: percentage(70/95);
@@ -207,11 +206,11 @@ table {
     thead {
         background: #eee;
     }
-    th,td {
+    th,
+    td {
         border: 1px solid #ddd;
         padding: 6px 0;
     }
-
     a {
         color: #e85b49;
     }
@@ -223,7 +222,7 @@ table {
     width: 75%;
     margin: 0 auto;
     text-align: left;
-    > p {
+    >p {
         margin: 8px 0;
         @include text-overflow;
     }
