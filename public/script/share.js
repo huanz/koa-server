@@ -3,7 +3,7 @@
     var config = {
         title: '4.26 魅蓝 E2 给青春做减法',
         text: '陌陌最火的求婚视频，100万附近人围观！',
-        url: window.location.href,
+        url: 'https://bm.immomo.com/activity/2017/mzso/index',
         pic: 'https://s.momocdn.com/biz/m/activity/2017/mzso/img/meizumomo.jpg'
     };
     window.shareCallback = function (ret) {

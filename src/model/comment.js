@@ -14,7 +14,7 @@ exports.list = async(ctx, next) => {
         list: [],
     };
     let params = Object.assign({
-        limit: 15,
+        limit: 10,
         skip: 0,
     }, ctx.query);
 

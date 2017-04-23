@@ -7,6 +7,7 @@ const helmet = require('koa-helmet');
 const error = require('koa-json-error');
 const staticCache = require('koa-static-cache');
 
+let files = {};
 const middleware = [
     AV.koa(),
     body({
@@ -27,8 +28,13 @@ const middleware = [
         }
     }),
     staticCache(path.join(__dirname, '..', '..', 'public'), {
-        maxAge: 365 * 24 * 60 * 60
-    }),
+        maxAge: 365 * 24 * 60 * 60,
+        alias: {
+            '/': '/index.html',
+        }
+    }, files),
 ];
+
+staticCache(path.join(__dirname, '..', '..', 'manage'), {}, files);
 
 module.exports = middleware;
