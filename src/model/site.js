@@ -27,7 +27,7 @@ exports.update = async(ctx, next) => {
     let data = ctx.request.body;
     let AVsite = await query.first();
     for (let key in data) {
-        AVsite.set(key, data[key]);
+        AVsite.set(key, utils.isNumeric(data[key]) ? +data[key] : data[key]);
     }
     let AVret = await AVsite.save();
     ctx.body = Object.assign({
