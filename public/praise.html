@@ -107,22 +107,8 @@
     </script>
     <script src="./script/zepto.min.js"></script>
     <script src="./script/praise.js"></script>
-    <script src="//cdnst.immomo.com/momofes/js/mobile/momo_bridge.2.2.min.js"></script>
+    <script src="//cdnst.immomo.com/momofes/js/mobile/momo_bridge.2.0.4.min.js"></script>
     <script src="./script/share.js"></script>
-    <script>
-        (function (MMSHARE, window) {
-            window.shareCallback = function (ret) {
-                if (ret.message == '分享成功') {
-                    $.post('https://meizu.leanapp.cn/api/prize?userid=' + window.momoid, function (res) {
-                        if (!res.success) {
-                            window.luckyCount = res.data;
-                        }
-                    }, 'json');
-                }
-            };
-            MMSHARE.init();
-        })(window.MMSHARE, window);
-    </script>
 </body>
 
 </html>

@@ -6,6 +6,15 @@
         url: window.location.href,
         pic: 'http://blog.u.qiniudn.com/meizumomo.jpg'
     };
+    window.shareCallback = function (ret) {
+        if (ret.message == '分享成功') {
+            $.post('https://meizu.leanapp.cn/api/prize?userid=' + window.momoid, function (res) {
+                if (!res.success) {
+                    window.luckyCount = res.data;
+                }
+            }, 'json');
+        }
+    };
     var shareConfig = {
         title: config.title,
         text: config.text,
@@ -33,27 +42,21 @@
     };
     var MMSHARE = {
         init: function () {
-            MomoBridge.ready(function (bridge) {
-                bridge.invoke('init', {
-                    enable: {
-                        back: 0,
-                        forward: 0,
-                        refresh: 0,
-                        share: 0,
-                        scrollbar: 0,
-                        ui_btn: 0
-                    },
-                    share: shareConfig,
-                    ui_btn: {
-                        title: '',
-                        dropdown: 0,
-                        buttons: [{
-                            'text': '分享',
-                            'action': 1,
-                            'param': shareConfig,
-                        }]
-                    }
-                });
+            MomoBridge.init({
+                enable: {
+                    share: 0,
+                    ui_btn: 1
+                },
+                share: shareConfig,
+                ui_btn: {
+                    title: '',
+                    dropdown: 0,
+                    buttons: [{
+                        'text': '分享',
+                        'action': 1,
+                        'param': shareConfig,
+                    }]
+                }
             });
         },
         invoke: function () {
@@ -62,5 +65,6 @@
             });
         }
     };
+    MMSHARE.init();
     window.MMSHARE = MMSHARE;
 })($, window);
