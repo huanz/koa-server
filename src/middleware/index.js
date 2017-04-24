@@ -8,7 +8,7 @@ const error = require('koa-json-error');
 const staticCache = require('koa-static-cache');
 
 let files = {};
-const middleware = [
+let middleware = [
     AV.koa(),
     body({
         formidable: {
@@ -17,7 +17,6 @@ const middleware = [
     }),
     cors(),
     helmet(),
-    logger(),
     error({
         format: (err) => {
             return {
@@ -38,4 +37,9 @@ const middleware = [
 staticCache(path.join(__dirname, '..', '..', 'manage'), {}, files);
 staticCache(path.join(__dirname, '..', '..', 'live'), {}, files);
 
-module.exports = middleware;
+module.exports = (app) => {
+    if (app.env !== 'production') {
+        middleware.push(logger());
+    }
+    return middleware;
+};

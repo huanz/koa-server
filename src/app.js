@@ -1,10 +1,8 @@
 'use strict';
 const Koa = require('koa');
-
-const moddlewares = require('./middleware');
-const router = require('./routes');
-
 const app = new Koa();
+const moddlewares = require('./middleware')(app);
+const router = require('./routes');
 
 app.proxy = true;
 
