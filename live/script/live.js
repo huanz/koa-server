@@ -43,15 +43,15 @@
 
             shareConfig.configs = {
                 momo_feed: {
-                    title: config.title,
-                    text: config.text,
-                    url: config.url,
+                    title: this.config.title,
+                    text: this.config.text,
+                    url: this.config.url,
                     sdk: 1,
                     resource: {
-                        title: config.title,
-                        desc: config.text,
-                        icon: config.pic,
-                        link: config.url
+                        title: this.config.title,
+                        desc: this.config.text,
+                        icon: this.config.pic,
+                        link: this.config.url
                     }
                 },
                 momo_friend: this.config,
