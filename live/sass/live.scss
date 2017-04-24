@@ -65,3 +65,24 @@ body {
 .hide {
     display: none;
 }
+
+.top {
+    width: 100%;
+    height: 330px;
+    background: url(../img/live-bg.png) no-repeat;
+    background-size: contain;
+}
+
+.video-wrap {
+    position: relative;
+
+    width: 100%;
+    height: 225px;
+    .video-js {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
