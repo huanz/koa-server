@@ -36,5 +36,6 @@ const middleware = [
 ];
 
 staticCache(path.join(__dirname, '..', '..', 'manage'), {}, files);
+staticCache(path.join(__dirname, '..', '..', 'live'), {}, files);
 
 module.exports = middleware;

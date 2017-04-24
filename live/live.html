@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="referrer" content="always">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <title>4.26 魅蓝 E2 给青春做减法</title>
+    <link rel="stylesheet" href="./css/live.css">
+</head>
+
+<body>
+    <img class="full-img" src="./img/header.png" alt="魅蓝-给青春做减法">
+    <div class="video-wrap">
+        <video id="j-player" class="video-js" preload="auto" playsinline webkit-playsinline controls autoplay loop data-setup='{}'>
+            <source src="https://s.momocdn.com/biz/m/activity/2017/mzso/video/video.mp4" type="video/mp4"></source>
+            <p class="vjs-no-js">不支持播放</p>
+        </video>
+        <span class="video-play">播放：<i></i></span>
+        <span class="video-like"></span>
+    </div>
+    <div class="middle">
+        <p class="middle-title">4.26 魅蓝 E2新品发布会</p>
+        <p>不要所谓的条件，只要我爱你。<br>魅蓝E2给青春做减法，「To Young To Simple」。</p>
+        <p class="blue">转发或说出你的故事可参与抽奖，100部魅蓝 E2 新品手机送给你。</p>
+        <a class="button" href="./praise.html">抽奖赢新品手机</a>
+        <p>每天三次分享机会</p>
+    </div>
+    <div class="clearfix tab">
+        <a class="active" href="javascript:;">主题海报</a>
+        <a href="javascript:;">说说你的青春故事</a>
+    </div>
+    <div class="tab-content gallery">
+        <div class="poster-desc">
+            <p class="poster-desc-inner">附近引起你注意的异性很多，聊得来的寥寥无几，<br>准备好了开场白，却只能盯着你的头像发呆。</p>
+        </div>
+        <a href="./img/poster1-big.jpg" data-size="1108x1108">
+            <img class="full-img" src="./img/poster1.jpg">
+        </a>
+        <div class="poster-desc">
+            <p class="poster-desc-inner">一个人吃饭，一个人看电影，一个人…<br>话痨找不到对象，只好假装内向。</p>
+        </div>
+        <a href="./img/poster2-big.jpg" data-size="1108x1108">
+            <img class="full-img" src="./img/poster2.jpg">
+        </a>
+        <div class="poster-desc">
+            <p class="poster-desc-inner">不如给青春做减法，让年轻的选择更纯粹，<br>看似减少了的选择，你会得到更多，<br>To Young To Simple。</p>
+        </div>
+        <a href="./img/poster3-big.jpg" data-size="1108x1108">
+            <img class="full-img" src="./img/poster3.jpg">
+        </a>
+        <img class="full-img footer" src="./img/footer.png" alt="分享赢取魅蓝E2新品手机">
+    </div>
+    <div class="tab-content hide" id="j-list">
+        <form class="comment-form">
+            <input class="comment-input" type="text" name="comment" placeholder="快来说说你的感想吧">
+            <input class="comment-submit" type="submit" value="发送">
+        </form>
+        <div id="j-hot" class="hide">
+            <p class="comment-label">热门评论</p>
+            <div class="comment-hot"></div>
+        </div>
+        <p class="comment-label">全部评论（<span id="j-total"></span>）</p>
+        <div class="comment-list"></div>
+        <p class="comment-more">点击查看更多...</p>
+    </div>
+    <div class="toast"></div>
+    <script src="./script/zepto.min.js"></script>
+    <!-- build path=./script/index.min.js -->
+    <script src="./video/video.min.js"></script>
+    <script src="./script/live.js"></script>
+    <!-- endbuild -->
+    <script src="//cdnst.immomo.com/momofes/js/mobile/momo_bridge.2.0.4.min.js"></script>
+    <script src="./script/share.js"></script>
+</body>
+
+</html>

@@ -15,7 +15,7 @@ var gulpIgnore = require('gulp-ignore');
 var cssimport = require("gulp-cssimport");
 var nodemon = require('gulp-nodemon');
 
-var projectDir = './public/';
+var projectDir = './live/';
 var srcDir = projectDir;
 var distDir = './dist/';
 var config = {
@@ -177,13 +177,15 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 
-gulp.task('copy:modules', function () {
+gulp.task('copy:video', function () {
     var videos = [
         './node_modules/video.js/dist/*.{css,js,swf}',
         './node_modules/videojs-contrib-hls/dist/*.js'
     ];
     gulp.src(videos).pipe(gulp.dest(srcDir + 'video'));
+});
 
+gulp.task('copy:photoswipe', function () {
     gulp.src([
         './node_modules/photoswipe/dist/*.min.js',
     ]).pipe(gulp.dest(srcDir + 'script'));
