@@ -1,6 +1,5 @@
 'use strict';
 const Koa = require('koa');
-const AV = require('leanengine');
 
 const moddlewares = require('./middleware');
 const router = require('./routes');

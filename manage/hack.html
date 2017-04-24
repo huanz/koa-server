@@ -65,8 +65,22 @@
 <body>
     <div class="flex-center">
         <div class="container">
+            <h1>直播设置</h1>
+            <form class="form j-form">
+                <div class="flex-left units-gap">
+                    <label class="unit-0 text-right">直播播放次数：</label>
+                    <div class="unit"><input type="number" name="live" /></div>
+                </div>
+                <div class="flex-left units-gap">
+                    <label class="unit-0 text-right">直播点赞次数：</label>
+                    <div class="unit"><input type="number" name="praise" /></div>
+                </div>
+                <div class="flex-right">
+                    <button type="submit" class="btn btn-primary">修改</button>
+                </div>
+            </form>
             <h1>基本设置</h1>
-            <form class="form" id="j-base">
+            <form class="form j-form">
                 <div class="flex-left units-gap">
                     <label class="unit-0 text-right">视频播放次数：</label>
                     <div class="unit"><input type="number" name="view" /></div>
@@ -117,7 +131,7 @@
                     comment: 'https://meizu.leanapp.cn/api/comment'
                 },
                 init: function () {
-                    this.$view = $('#j-base');
+                    this.$view = $('.j-form');
                     this.$list = $('#j-list');
                     this.$more = $('.more');
                     this.$toast = $('.toast');
