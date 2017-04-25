@@ -9,31 +9,32 @@
     <meta name="referrer" content="always">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="format-detection" content="telephone=no, email=no"/>
-    <title>歌手张碧晨直播送手机</title>
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <title>魅蓝 E2 新品发布会直播</title>
     <link rel="stylesheet" href="./css/live.css">
 </head>
 
 <body>
-    <div class="top">
-        <img class="top-footer" src="./img/live-bg1.png" alt="魅蓝E5">
-        <img class="top-img" src="./img/live-text.png" alt="给青春做减法">
-        <p class="top-text">魅蓝 E2 新品发布会正在直播中</p>
-        <div class="video-wrap">
-            <div class="video-inner">
-                <!-- autoplay-->
-                <video id="j-player" controls class="video-js" preload="auto" playsinline webkit-playsinline controls loop data-setup='{}'>
-                    <source src="http://pili-live-hls.ps.qiniucdn.com/NIU7PS/meizu-test.m3u8" type="application/x-mpegURL"></source>
-                    <p class="vjs-no-js">不支持播放</p>
-                </video>
+    <div class="wrap">
+        <div class="top">
+            <img class="top-footer" src="./img/live-bg1.png" alt="魅蓝E5">
+            <img class="top-img" src="./img/live-text.png" alt="给青春做减法">
+            <p class="top-text">魅蓝 E2 新品发布会正在直播中</p>
+            <div class="video-wrap">
+                <div class="video-inner">
+                    <!-- autoplay-->
+                    <video id="j-player" controls class="video-js" preload="auto" playsinline webkit-playsinline controls loop data-setup='{}'>
+                        <source src="http://pili-live-hls.ps.qiniucdn.com/NIU7PS/meizu-test.m3u8" type="application/x-mpegURL"></source>
+                        <p class="vjs-no-js">不支持播放</p>
+                    </video>
+                </div>
             </div>
+            <div class="video-play">当前已有&nbsp;<i id="j-view"></i>&nbsp;人观看直播</div>
         </div>
-        <div class="video-play">当前已有&nbsp;<i id="j-view"></i>&nbsp;人观看直播</div>
+        <div class="praise" id="j-praise"></div>
+        <p class="tip">这么好玩土豪的主播，你确定不点赞？</p>
     </div>
-    <div class="praise" id="j-praise"></div>
-    <p class="tip">这么好玩土豪的主播，你确定不点赞？</p>
     <img class="full-img" src="./img/live-footer.png" alt="魅蓝E5">
-    <div class="toast"></div>
     <script src="//cdnst.immomo.com/momofes/js/mobile/momo_bridge.2.0.4.min.js"></script>
     <script src="./script/zepto.min.js"></script>
     <!-- build path=./script/index.min.js -->
