@@ -11,9 +11,37 @@
             this.$view = $('#j-view');
             this.$praise = $('#j-praise');
 
+            this.video();
             this.getData();
             this.events();
             this.share();
+        },
+        video: function () {
+            var player = videojs('j-player', {
+                controls: false
+            });
+            var $control = $('.video-control');
+            var $play = $control.find('i.vjs-icon-play');
+            var $fullscreen = $control.find('i.vjs-icon-play');
+
+            player.on(['pause', 'ended'], function () {
+                $play.removeClass('vjs-icon-pause');
+            });
+
+            player.on(['waiting', 'playing'], function () {
+                $play.addClass('vjs-icon-pause');
+            });
+
+            player.on('fullscreenchange', function () {
+                $fullscreen.toggleClass('vjs-icon-fullscreen-exit', player.isFullscreen());
+            });
+
+            // vjs-icon-pause
+            $control.on('click', '.vjs-icon-play', function () {
+                player.paused() ? player.play() : player.pause();
+            }).on('click', '.vjs-icon-fullscreen-enter', function () {
+                player.isFullscreen() ? player.exitFullscreen() : player.requestFullscreen();
+            });
         },
         getData: function () {
             var _this = this;

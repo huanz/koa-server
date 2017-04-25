@@ -22,14 +22,18 @@
             <p class="top-text">魅蓝 E2 新品发布会正在直播中</p>
             <div class="video-wrap">
                 <div class="video-inner">
-                    <!-- autoplay-->
-                    <video id="j-player" controls class="video-js" preload="auto" playsinline webkit-playsinline controls loop data-setup='{}'>
+                    <!-- autoplay controls loop-->
+                    <video id="j-player" class="video-js" preload="auto" playsinline webkit-playsinline autoplay data-setup='{}'>
                         <source src="http://pili-live-hls.ps.qiniucdn.com/NIU7PS/meizu-test.m3u8" type="application/x-mpegURL"></source>
                         <p class="vjs-no-js">不支持播放</p>
                     </video>
                 </div>
             </div>
-            <div class="video-play">当前已有&nbsp;<i id="j-view"></i>&nbsp;人观看直播</div>
+            <div class="video-control">
+                <i class="vjs-icon-play"></i>
+                <i class="vjs-icon-fullscreen-enter"></i>
+                当前已有&nbsp;<i id="j-view"></i>&nbsp;人观看直播
+            </div>
         </div>
         <div class="praise" id="j-praise"></div>
         <p class="tip">这么好玩土豪的主播，你确定不点赞？</p>
