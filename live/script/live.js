@@ -4,7 +4,7 @@
             title: '歌手张碧晨陌陌直播，观看赢新品手机！',
             text: '魅蓝 E2 新品发布会正在直播中',
             url: window.location.href,
-            pic: 'https://s.momocdn.com/biz/m/activity/2017/mzso/img/meizumomo.jpg'
+            pic: 'https://s.momocdn.com/biz/m/activity/2017/mzso/img/meizuzb.jpg'
         },
         api: 'https://meizu.leanapp.cn/api/live',
         init: function () {
