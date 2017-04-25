@@ -12,7 +12,7 @@ exports.increase = async(key, num = 1) => {
     let newSite = await AVsite.save(null, {
         fetchWhenSave: true,
     });
-    return newSite.get(key);
+    return newSite;
 };
 
 exports.get = async() => {
@@ -21,10 +21,10 @@ exports.get = async() => {
 };
 
 exports.video = async(ctx) => {
-    let video = await exports.increase('video');
+    let AVsite = await exports.increase('video');
     ctx.body = {
         success: 1,
-        video: video,
+        video: AVsite.get('video'),
     };
 };
 
@@ -41,10 +41,10 @@ exports.update = async(ctx, next) => {
 };
 
 exports.view = async(ctx, next) => {
-    let view = await exports.increase('view');
+    let AVsite = await exports.increase('view');
     ctx.body = {
         success: 0,
-        view: utils.numberFormat(view),
+        view: utils.numberFormat(AVsite.get('view')),
     };
 };
 
@@ -60,12 +60,12 @@ exports.config = async(ctx, next) => {
  * @desc 直播数据
  */
 exports.live = async(ctx, next) => {
-    let AVsite = await query.first();
+    let AVsite = await exports.increase('live');
     ctx.body = {
         success: 0,
         data: {
-            view: AVsite.get('live'),
-            praise: AVsite.get('praise'),
+            view: utils.numberFormat(AVsite.get('live')),
+            praise: utils.numberFormat(AVsite.get('praise')),
         },
     };
 };
@@ -83,10 +83,10 @@ exports.liveInc = async(ctx, next) => {
         };
     }
 
-    let num = await exports.increase(params.type);
+    let AVsite = await exports.increase(params.type);
 
     ctx.body = {
         success: 0,
-        num: utils.numberFormat(num),
+        num: utils.numberFormat(AVsite.get(params.type)),
     };
 };

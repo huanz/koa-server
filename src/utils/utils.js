@@ -53,6 +53,7 @@ exports.isNumeric = (val) => {
 };
 
 exports.moment = moment;
+exports.numeral = numeral;
 
 exports.numberFormat = (value) => {
     if (value >= 10000) {
