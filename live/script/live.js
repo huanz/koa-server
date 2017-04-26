@@ -19,8 +19,11 @@
             var _this = this;
             $.getJSON(this.api, function (res) {
                 if (!res.success) {
-                    _this.$view.text(res.data.view);
-                    _this.$praise.text(res.data.praise);
+                    if (!res.data.end) {
+                        _this.$view.text(res.data.view);
+                        _this.$praise.text(res.data.praise);
+                    }
+                    _this.video(res.data);
                 }
             });
         },
@@ -33,6 +36,17 @@
                     res.success || _this.$praise.text(res.num);
                 }, 'json');
             });
+        },
+        video: function (params) {
+            var player = videojs('j-player', {
+                controls: true,
+                autoplay: true,
+                sources: params.sources
+            });
+            if (params.end) {
+                $('.j-playing').hide();
+                $('#j-end').show();
+            }
         },
         share: function () {
             var MomoBridge = window.MomoBridge || window.mm;

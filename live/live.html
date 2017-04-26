@@ -23,18 +23,27 @@
             <div class="video-wrap">
                 <div class="video-inner">
                     <!-- autoplay-->
-                    <video id="j-player" controls class="video-js" preload="auto" playsinline webkit-playsinline controls loop data-setup='{}'>
-                        <source src="http://pili-live-hls.ps.qiniucdn.com/NIU7PS/meizu-test.m3u8" type="application/x-mpegURL"></source>
+                    <video id="j-player" class="video-js" preload="auto" playsinline webkit-playsinline controls loop autoplay data-setup='{}'>
                         <p class="vjs-no-js">不支持播放</p>
                     </video>
                 </div>
             </div>
-            <div class="video-play">当前已有&nbsp;<i id="j-view"></i>&nbsp;人观看直播</div>
+            <div class="video-play j-playing">当前已有&nbsp;<i id="j-view"></i>&nbsp;人观看直播</div>
         </div>
-        <div class="praise" id="j-praise"></div>
-        <p class="tip">这么好玩土豪的主播，你确定不点赞？</p>
+        <div class="j-playing">
+            <div class="praise" id="j-praise"></div>
+            <p class="tip">这么好玩土豪的主播，你确定不点赞？</p>
+        </div>
+        <div class="live-end" id="j-end">
+            <a href="https://hd.mall.meizu.com/yuyue/meilanE2.html" target="_blank"><img class="full-img" src="./img/live-end1.jpg" alt="魅蓝E2"></a>
+            <img class="full-img" src="./img/live-end2.jpg" alt="魅蓝E2">
+            <img class="full-img" src="./img/live-end3.jpg" alt="魅蓝E2">
+            <img class="full-img" src="./img/live-end4.jpg" alt="魅蓝E2">
+            <img class="full-img" src="./img/live-end5.jpg" alt="魅蓝E2">
+            <img class="full-img" src="./img/live-end6.jpg" alt="魅蓝E2">
+        </div>
     </div>
-    <img class="full-img" src="./img/live-footer.png" alt="魅蓝E5">
+    <img class="full-img j-playing" src="./img/live-footer.png" alt="魅蓝E2">
     <script src="//cdnst.immomo.com/momofes/js/mobile/momo_bridge.2.0.4.min.js"></script>
     <script src="./script/zepto.min.js"></script>
     <!-- build path=./script/index.min.js -->

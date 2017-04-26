@@ -66,6 +66,8 @@ exports.live = async(ctx, next) => {
         data: {
             view: utils.numberFormat(AVsite.get('live')),
             praise: utils.numberFormat(AVsite.get('praise')),
+            sources: AVsite.get('sources'),
+            end: AVsite.get('end'),
         },
     };
 };
