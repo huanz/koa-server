@@ -41,6 +41,8 @@
             var player = videojs('j-player', {
                 controls: true,
                 autoplay: true,
+                loop: true,
+                preload: 'auto',
                 sources: params.sources
             });
             if (params.end) {
