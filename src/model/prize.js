@@ -84,6 +84,7 @@ exports.post = async(ctx, next) => {
         data: {
             share: AVret.get('share'),
             count: AVret.get('count'),
+            times: AVret.get('times')
         },
     };
 };
